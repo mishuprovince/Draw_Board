@@ -19,15 +19,13 @@ import java.util.List;
 public class DrawBoard extends View {
 
     private Paint mpaint=new Paint();
-    private int strokeWidth;
+
     private Canvas mcanvas;
     private Path path;
     private float mLastX;
     private float mLastY;
     private List<Path> pathList = new ArrayList<>();
-    private int mWidth;
-    private int mHeight;
-    private Bitmap mBufferBitmap;
+
 
     public DrawBoard(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -58,7 +56,6 @@ public class DrawBoard extends View {
         }
         canvas.save();
         canvas.restore();
-        Log.i("pathlist",""+pathList.size());
     }
 
     @Override
@@ -78,13 +75,13 @@ public class DrawBoard extends View {
             mLastY = y;
             invalidate();
         }
-        if (event.getAction()==MotionEvent.ACTION_UP){
-            path.quadTo(mLastX, mLastY, (mLastX + x) / 2, (mLastY + y) / 2);
-            mcanvas.drawPath(path, mpaint);
-            mLastX = x;
-            mLastY = y;
-            invalidate();
-        }
+//        if (event.getAction()==MotionEvent.ACTION_UP){
+//            path.quadTo(mLastX, mLastY, (mLastX + x) / 2, (mLastY + y) / 2);
+//            mcanvas.drawPath(path, mpaint);
+//            mLastX = x;
+//            mLastY = y;
+//            invalidate();
+//        }
         return true;
     }
 }
