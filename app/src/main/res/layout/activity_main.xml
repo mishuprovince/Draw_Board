@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <com.example.drawboard.DrawBoard
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintVertical_weight="1"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="-93dp"></com.example.drawboard.DrawBoard>
+
+    <RadioGroup
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:id="@+id/pen"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/eraser"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+<RadioButton
+
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"/>
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+</LinearLayout>
