@@ -1,45 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <com.example.drawboard.DrawBoard
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintVertical_weight="1"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="-93dp"></com.example.drawboard.DrawBoard>
+        android:layout_weight="1"></com.example.drawboard.DrawBoard>
 
     <RadioGroup
         android:id="@+id/menu"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        >
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/pen"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            style="@style/Menu"
+            android:drawableTop="@drawable/paint"
+            android:text="画笔" />
 
         <RadioButton
             android:id="@+id/eraser"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
-<RadioButton
+            style="@style/Menu"
+            android:drawableTop="@drawable/eraser"
+            android:text="橡皮" />
 
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"/>
         <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:id="@+id/cleanboard"
+            style="@style/Menu"
+            android:drawableTop="@drawable/clean"
+            android:text="清空画板" />
+
+        <RadioButton
+            android:id="@+id/goback"
+            style="@style/Menu"
+            android:drawableTop="@drawable/last"
+
+            android:text="返回" />
+
+        <RadioButton
+            android:id="@+id/gonext"
+            style="@style/Menu"
+            android:drawableTop="@drawable/next"
+            android:text="下一步" />
+
+        <RadioButton
+            android:id="@+id/save"
+            style="@style/Menu"
+            android:drawableTop="@drawable/save"
+            android:text="保存画板" />
     </RadioGroup>
 </LinearLayout>
