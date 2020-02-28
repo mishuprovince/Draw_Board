@@ -41,13 +41,13 @@
             style="@style/Menu"
             android:drawableTop="@drawable/last"
 
-            android:text="返回" />
+            android:text="撤销" />
 
         <RadioButton
             android:id="@+id/gonext"
             style="@style/Menu"
             android:drawableTop="@drawable/next"
-            android:text="下一步" />
+            android:text="还原" />
 
         <RadioButton
             android:id="@+id/save"
@@ -59,42 +59,13 @@
             android:id="@+id/colors"
             style="@style/Menu"
             android:drawableTop="@drawable/save"
-            android:text="颜色" />
+            android:text="切换颜色" />
 
         <RadioButton
             android:id="@+id/widths"
             style="@style/Menu"
             android:drawableTop="@drawable/save"
-            android:text="粗细" />
+            android:text="10" />
 
     </RadioGroup>
-
-    <LinearLayout
-        android:id="@+id/textsize"
-        android:rotation="270"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:gravity="center_vertical"
-        android:layout_above="@+id/menu"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="60dp"
-        android:orientation="horizontal">
-
-        <SeekBar
-            android:id="@+id/textsize_bar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:max="100" />
-
-        <TextView
-            android:id="@+id/textsize_num"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-
 </RelativeLayout>

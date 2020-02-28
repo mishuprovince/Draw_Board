@@ -21,12 +21,12 @@ public class DrawBoard extends View {
     private Path path;
     private float mLastX;
     private float mLastY;
-    private int paintSize = 20;
+    private int paintSize = 10;
     private int paintColor = 0xFF000000;
 
     private List<Path> lastList = new ArrayList<>();
     private List<Path> pathList = new ArrayList<>();
-    private List<Integer> paintList = new ArrayList<>();
+    private List<Paints> paintList = new ArrayList<>();
 
     public DrawBoard(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -69,8 +69,8 @@ public class DrawBoard extends View {
         for (int i = 0; i < pathList.size(); i++) {
             Path path1 = pathList.get(i);
             Paint paint1 = new Paint();
-            paint1.setStrokeWidth(paintSize);
-            paint1.setColor(paintList.get(i));
+            paint1.setStrokeWidth(paintList.get(i).getWidths());
+            paint1.setColor(paintList.get(i).getColors());
             paint1.setStyle(Paint.Style.STROKE);
             paint1.setAntiAlias(true);
             paint1.setStrokeCap(Paint.Cap.ROUND);
@@ -86,10 +86,10 @@ public class DrawBoard extends View {
         float x = event.getX(), y = event.getY();
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             path = new Path();
+            Paints paints=new Paints(this.paintSize,this.paintColor);
             pathList.add(path);
-            paintList.add(mpaint.getColor());
+            paintList.add(paints);
             path.moveTo(event.getX(), event.getY());
-
             mLastX = x;
             mLastY = y;
         }
@@ -129,13 +129,19 @@ public class DrawBoard extends View {
     }
 
     public void seteraser() {
-        mpaint.setColor(Color.WHITE);
+        this.paintColor=Color.WHITE;
         invalidate();
     }
 
     public void setpen() {
         mpaint.setStrokeWidth(paintSize);
         mpaint.setColor(paintColor);
+        invalidate();
+    }
+
+    public void clean(){
+        lastList.addAll(pathList);
+        pathList.clear();
         invalidate();
     }
 }
